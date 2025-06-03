@@ -1,4 +1,4 @@
-Using pgadmin and postgres, thorugh Docker, I have set up a Postgres database to manage and upload datasets into tables and views for manipulation.
+Using pgadmin and postgres, through Docker, I have set up a Postgres database to manage and upload datasets into tables and views for manipulation.
 
 Raw data lives in the 'ingestion' folder.
 
