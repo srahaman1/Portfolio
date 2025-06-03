@@ -2832,4 +2832,4 @@ docker/postgres/my_db/pg_stat/global.stat
 docker/postgres/my_db/pg_subtrans/0000
 docker/postgres/my_db/pg_wal/000000010000000000000001
 docker/postgres/my_db/pg_xact/0000
-projects/Fetch_Analytics_Engineer/data
+projects/Fetch_Analytics_Engineer

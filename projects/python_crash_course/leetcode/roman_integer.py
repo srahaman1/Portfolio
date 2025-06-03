@@ -44,9 +44,10 @@ s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
 It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 '''
 
+# Simple Solution:
 roman_year = 'LVIII'
 
-roman_to_int = {
+roman_to_int = { #Dicitonary
     'I':1,
     'V':5,
     'X':10,
@@ -60,9 +61,9 @@ sum = 0
 
 roman_year = roman_year.replace("IV", "IIII").replace("IX", "VIIII")
 roman_year = roman_year.replace("XL", "XXXX").replace("XC", "LXXXX")
-roman_year = roman_year.replace("CD", "CCCC").replace("CM", "DCCCC")
+roman_year = roman_year.replace("CD", "CCCC").replace("CM", "DCCCC") # Swap problem cases
 
 for letter in roman_year:
-    sum += roman_to_int[letter]
+    sum += roman_to_int[letter] # iterate through string matching letter to key equivalent and summing value.
+# print(sum)
 
-print(sum)
