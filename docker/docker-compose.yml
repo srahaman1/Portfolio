@@ -1,0 +1,42 @@
+services:
+  pg-database:
+    image: postgres:13.2
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=portfolio_db
+    volumes:
+      - "./my_portfolio:/var/lib/postgresql/data:rw"
+      - "./postgres/init:/docker-entrypoint-initdb.d" # new line
+    ports:
+      - "5432:5432"
+    networks:
+      - pg-network
+    container_name: pg-database  # This name will be used by pgAdmin to connect
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+      # Pre-configure the PostgreSQL server connection
+      - PGADMIN_SERVER_JSON_FILE=/pgadmin4/servers.json
+    ports:
+      - "8080:80"
+    networks:
+      - pg-network
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin  # Add persistent volume for pgAdmin data
+      - ./servers.json:/pgadmin4/servers.json  # Mount the server configuration file
+    depends_on:
+      - pg-database
+
+networks:
+  pg-network:
+    driver: bridge
+
+volumes:
+  pgadmin-data:
+
+# Used help from AI to build this yaml in order to have pgadmin auotmatically
+# attach to the db.
