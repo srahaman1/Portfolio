@@ -1,0 +1,12 @@
+# Finance App Dependencies
+# Python 3.9+
+
+# Phase 1: Core Calculator (no dependencies)
+# - sqlite3 (built-in)
+# - json (built-in)
+# - dataclasses (built-in)
+
+# Phase 2: GUI + Visualizations
+customtkinter>=5.2.0
+plotly>=5.18.0
+kaleido>=0.2.1
